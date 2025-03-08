@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .profile-container {
+            max-width: 400px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: auto;
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .add-new {
+            color: blue;
+            font-size: 14px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: darkgray;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <form>
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" required>
+
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last-name" required>
+
+            <label for="bio">Bio</label>
+            <textarea id="bio" name="bio" rows="3"></textarea>
+
+            <label for="certification">Certification</label>
+            <input type="text" id="certification" name="certification">
+            <span class="add-new">+ add new</span>
+
+            <label for="projects">Projects</label>
+            <input type="text" id="projects" name="projects">
+            <span class="add-new">+ add new</span>
+
+            <label for="qualification">Qualification</label>
+            <input type="text" id="qualification" name="qualification">
+            <span class="add-new">+ add new</span>
+
+            <label for="language">Language</label>
+            <input type="text" id="language" name="language">
+            <span class="add-new">+ add new</span>
+
+            <button type="submit">Save Profile</button>
+        </form>
+
+        
+    </div>
+
+</body>
+</html>

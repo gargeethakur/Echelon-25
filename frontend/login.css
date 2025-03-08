@@ -1,0 +1,125 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #b0d4f1, white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Left Side: Illustration */
+.illustration img {
+    width: 500px;
+    height: 350px;
+}
+
+/* Right Side: Login Form */
+.login-form {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+}
+
+/* Logo */
+.logo {
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+/* Google Button */
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.google-btn img {
+    width: 18px;
+    margin-right: 8px;
+}
+
+/* Input Fields */
+.input-box {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Password Container */
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background: royalblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Bottom Links */
+.bottom-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.bottom-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Back Button */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 5px 10px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
