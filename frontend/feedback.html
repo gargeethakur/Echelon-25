@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        /* Feedback Button */
+        .feedback-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .feedback-btn:hover {
+            padding: 12px 20px;
+            font-size: 18px;
+        }
+
+        /* Feedback Form Popup */
+        .feedback-popup {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 250px;
+        }
+
+        .feedback-popup textarea {
+            width: 100%;
+            height: 60px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .feedback-popup button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .feedback-popup button:hover {
+            background: #218838;
+        }
+
+        /* Feedback List */
+        .feedback-list {
+            max-width: 500px;
+            margin: 20px auto;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedback-item {
+            background: #f9f9f9;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🚀 User Feedback</h1>
+
+    <!-- Feedback List -->
+    <div class="feedback-list" id="feedbackList">
+        <h2>User Feedback</h2>
+    </div>
+
+    <!-- Feedback Button -->
+    <button class="feedback-btn" onclick="toggleFeedbackForm()">💬 Feedback</button>
+
+    <!-- Feedback Form Popup -->
+    <div class="feedback-popup" id="feedbackPopup">
+        <textarea id="feedbackInput" placeholder="Enter your feedback..."></textarea>
+        <button onclick="submitFeedback()">Submit</button>
+    </div>
+
+    <script>
+        // Load saved feedback from localStorage
+        let feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
+
+        function toggleFeedbackForm() {
+            let popup = document.getElementById("feedbackPopup");
+            popup.style.display = popup.style.display === "block" ? "none" : "block";
+        }
+
+        function submitFeedback() {
+            let feedbackText = document.getElementById("feedbackInput").value;
+            if (feedbackText.trim() === "") return;
+            
+            feedbacks.push(feedbackText);
+            localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
+            document.getElementById("feedbackInput").value = "";
+            toggleFeedbackForm();
+            displayFeedback();
+        }
+
+        function displayFeedback() {
+            let feedbackList = document.getElementById("feedbackList");
+            feedbackList.innerHTML = "<h2>User Feedback</h2>";
+            feedbacks.forEach(feedback => {
+                feedbackList.innerHTML += <div class="feedback-item">${feedback}</div>;
+            });
+        }
+
+        // Load existing feedback on page load
+        displayFeedback();
+    </script>
+
+</body>
+</html>

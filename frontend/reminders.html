@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Reminder with Calendar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .task-input, .task-date {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .task-btn {
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .task-btn:hover {
+            background: #0056b3;
+        }
+
+        .task-list {
+            text-align: left;
+            padding: 0;
+        }
+
+        .task-item {
+            display: flex;
+            justify-content: space-between;
+            background: #f9f9f9;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+
+        .task-item button {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: green;
+        }
+
+        .countdown {
+            font-size: 14px;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📅 Task Reminder with Calendar</h1>
+
+    <!-- Task Reminder Section -->
+    <div class="container">
+        <h2>✅ Add New Task</h2>
+        <input type="text" id="taskInput" class="task-input" placeholder="Enter task...">
+        <input type="datetime-local" id="taskDate" class="task-date">
+        <button class="task-btn" onclick="addTask()">Add Task</button>
+        <ul id="taskList" class="task-list"></ul>
+    </div>
+
+    <script>
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+        function addTask() {
+            let taskInput = document.getElementById("taskInput").value;
+            let taskDate = document.getElementById("taskDate").value;
+            if (taskInput.trim() === "" || taskDate === "") return;
+
+            tasks.push({ text: taskInput, dueDate: taskDate, completed: false });
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            document.getElementById("taskInput").value = "";
+            document.getElementById("taskDate").value = "";
+            displayTasks();
+        }
+
+        function displayTasks() {
+            let taskList = document.getElementById("taskList");
+            taskList.innerHTML = "";
+            tasks.forEach((task, index) => {
+                let countdown = getCountdown(task.dueDate);
+                taskList.innerHTML += `
+                    <li class="task-item">
+                        <div>
+                            <span class="${task.completed ? 'completed' : ''}" onclick="toggleTask(${index})">${task.text}</span>
+                            <div class="countdown">Due: ${task.dueDate} (${countdown})</div>
+                        </div>
+                        <button onclick="deleteTask(${index})">❌</button>
+                    </li>`;
+            });
+        }
+
+        function toggleTask(index) {
+            tasks[index].completed = !tasks[index].completed;
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            displayTasks();
+        }
+
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            displayTasks();
+        }
+
+        function getCountdown(dueDate) {
+            let now = new Date();
+            let taskTime = new Date(dueDate);
+            let timeDiff = taskTime - now;
+
+            if (timeDiff <= 0) return "⏰ Overdue!";
+            let hours = Math.floor(timeDiff / (1000 * 60 * 60));
+            let minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+
+            return ${hours}h ${minutes}m left;
+        }
+
+        setInterval(displayTasks, 60000); // Auto-update countdown every 1 minute
+        displayTasks();
+    </script>
+
+</body>
+</html>

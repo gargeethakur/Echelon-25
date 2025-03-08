@@ -1,0 +1,73 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+   
+    background: linear-gradient(to bottom, #b0d4f1, white);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+    padding: 15px 50px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.logo {
+    width: 120px;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.nav-links li {
+    display: inline;
+}
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.nav-icons img {
+    width: 25px;
+    margin-left: 15px;
+}
+
+/* Profile Section */
+.profile-container {
+    text-align: left;
+    padding: 50px;
+}
+.profile-pic {
+    width: 80px;
+    display: block;
+    margin-bottom: 20px;
+}
+.profile-details h3, h4, p, ul {
+    margin: 10px 0;
+}
+.profile-details ul {
+    padding-left: 20px;
+}
+
+/* Floating Edit Button */
+.edit-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: black;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.edit-btn img {
+    width: 20px;
+}
