@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+pandas
+bcrypt
+python-dotenv
+google-generativeai
