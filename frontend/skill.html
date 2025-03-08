@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search & Filter Mentors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #c2d4e2, white);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #222;
+        }
+
+        .logo img {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+            margin-left: 20px;
+        }
+
+        .nav-icons a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+
+        .nav-icons a:hover {
+            color: #007bff;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .icon:hover {
+            transform: scale(1.1);
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: flex-start; /* Aligns image to the left */
+            margin-left: 200px; /* Moves the image slightly to the right */
+            width: 100%;
+        }
+
+        .image-container img {
+            border-radius: 10px; /* Keeps rounded corners */
+            width: 500px;
+    
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        /* Search & Filter Section */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input, select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Mentor Grid Layout */
+        .mentor-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .mentor-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .mentor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .mentor-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #007BFF;
+        }
+
+        .mentor-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .mentor-info {
+            color: gray;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="EduBoost AI Logo"> 
+            <span>EduBoost AI</span>
+        </div>
+        <nav>
+            
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="D:\BTech Nmims\Tech 2nd year\Hackathon\course.html">CTA</a></li>
+                    <li><a href=" ">Skill</a></li>
+                    <li><a href="D:\BTech Nmims\Tech 2nd year\Hackathon\skill.html">Mentor</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="D:\BTech Nmims\Tech 2nd year\Hackathon\login.html">Apply now</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="#"><img src="search-icon.jpeg" alt="Search" class="icon"></a>
+                    <a href="D:\BTech Nmims\Tech 2nd year\Hackathon\hover.html"><img src="user-icon.jpeg" alt="Profile" class="icon"></a>
+                </div>
+            
+            
+            
+        </nav>
+    </header>
+
+    <h1>Find a Mentor</h1>
+
+    <!-- Search & Filters -->
+    <div class="filter-container">
+        <input type="text" id="searchInput" placeholder="Search by name or skill..." onkeyup="filterMentors()">
+        <select id="industryFilter" onchange="filterMentors()">
+            <option value="">All Industries</option>
+            <option value="AI">AI</option>
+            <option value="Software">Software</option>
+            <option value="Cybersecurity">Cybersecurity</option>
+        </select>
+        <select id="experienceFilter" onchange="filterMentors()">
+            <option value="">All Experience Levels</option>
+            <option value="Junior">Junior</option>
+            <option value="Mid-Level">Mid-Level</option>
+            <option value="Senior">Senior</option>
+        </select>
+    </div>
+
+    <!-- Mentor Grid -->
+    <div class="mentor-container" id="mentorContainer">
+        <!-- Mentors will be dynamically added here -->
+    </div>
+
+    <script>
+        // Sample Mentor Data
+        const mentors = [
+            { name: "Alice Johnson", skill: "Machine Learning", industry: "AI", experience: "Senior", image: "https://i.pravatar.cc/100?img=1" },
+            { name: "Bob Smith", skill: "Web Development", industry: "Software", experience: "Mid-Level", image: "https://i.pravatar.cc/100?img=2" },
+            { name: "Charlie Brown", skill: "Cybersecurity", industry: "Cybersecurity", experience: "Junior", image: "https://i.pravatar.cc/100?img=3" },
+            { name: "Diana Green", skill: "Data Science", industry: "AI", experience: "Mid-Level", image: "https://i.pravatar.cc/100?img=4" },
+            { name: "Edward King", skill: "Cloud Computing", industry: "Software", experience: "Senior", image: "https://i.pravatar.cc/100?img=5" }
+        ];
+
+        // Function to Display Mentors
+        function displayMentors(filteredMentors) {
+            const mentorContainer = document.getElementById("mentorContainer");
+            mentorContainer.innerHTML = "";
+            filteredMentors.forEach(mentor => {
+                const card = document.createElement("div");
+                card.classList.add("mentor-card");
+                card.innerHTML = `
+                    <img src="${mentor.image}" alt="${mentor.name}" class="mentor-image">
+                    <div class="mentor-name">${mentor.name}</div>
+                    <div class="mentor-info">${mentor.skill} - ${mentor.industry}</div>
+                    <div class="mentor-info">Experience: ${mentor.experience}</div>
+                `;
+                mentorContainer.appendChild(card);
+            });
+        }
+
+        // Function to Filter Mentors
+        function filterMentors() {
+            const searchText = document.getElementById("searchInput").value.toLowerCase();
+            const industry = document.getElementById("industryFilter").value;
+            const experience = document.getElementById("experienceFilter").value;
+
+            const filteredMentors = mentors.filter(mentor => {
+                return (
+                    (mentor.name.toLowerCase().includes(searchText) || mentor.skill.toLowerCase().includes(searchText)) &&
+                    (industry === "" || mentor.industry === industry) &&
+                    (experience === "" || mentor.experience === experience)
+                );
+            });
+
+            displayMentors(filteredMentors);
+        }
+
+        // Initialize with all mentors
+        displayMentors(mentors);
+    </script>
+
+</body>
+</html>
