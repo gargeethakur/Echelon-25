@@ -273,6 +273,37 @@
         .nav-links li a:hover {
             color: #007bff;
         }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+
+          
+        }
+
+        .social-icons a {
+            font-size: 30px;
+            color: #FFA500;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+            color: white;
+            width: 10px;
+            height: auto;
+        }
+
+        .social-icons img {
+            width: 40px; /* Adjust size as needed */
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover img {
+            transform: scale(1.2);
+        }
 
 /* Navigation Icons */
         .nav-icons {
@@ -323,12 +354,15 @@
             <img src="logo.png" alt="EduBoost AI Logo"> 
             <span>EduBoost AI</span>
         </div>
+        <a href ="https://www.chatbase.co/chatbot-iframe/p6l8tFTfSUtFHoUSUAHOI">chatbot</a>
+
+
         <nav>
             
                 <ul class="nav-links">
                     <li><a href="D:\BTech Nmims\Tech 2nd year\Hackathon\home.html">Home</a></li>
-                    <li><a href="D:\BTech Nmims\Tech 2nd year\Hackathon\course.html">CTA</a></li>
-                    <li><a href=" ">Skill</a></li>
+                    <li><a href="D:\BTech Nmims\Tech 2nd year\Hackathon\course.html">Courses</a></li>
+                    <li><a href="D:\BTech Nmims\Tech 2nd year\Hackathon\skill.html">Skill</a></li>
                     <li><a href="D:\BTech Nmims\Tech 2nd year\Hackathon\skill.html">Mentor</a></li>
                     <li><a href="D:\BTech Nmims\Tech 2nd year\Hackathon\feedback.html">Feedback</a></li>
                     <li><a href="D:\BTech Nmims\Tech 2nd year\Hackathon\aboutus.html">About</a></li>
@@ -373,13 +407,42 @@
         <button class="post-btn" onclick="addPost()">Post</button>
         <div class="forum-posts" id="forumPosts"></div>
     </div>
+    <div class="contact-container">
+        <h2>📞 Get in Touch</h2>
+        
+        <div class="contact-info">
+            <p><i>📱</i> Riddhima Ghule - <a href="tel:+91 9967827199">+91 9967827199</a></p>
+            <p><i>📱</i> Gargee Thakur- <a href="tel:+91 85917 71156">+91  85917 71156</a></p>
+            <p><i>📱</i> Arnav Gulve- <a href="tel:+9182912 84003">+91 82912 84003</a></p>
 
+            
+            <p><i>📍</i> NMIMS Navi Mumbai</p>
+            <p><i>✉</i> <a href="mailto:riddhimaghule18@gmail.com">riddhimaghule18@gmail.com</a></p>
+        </div>
+
+        <h2>🌍 Connect With Us</h2>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/heyyyyaditii/" ><img src="insta.png" alt="instalogo"></a> <!-- Instagram -->
+            <a href="#" target="_blank"><img src="linkedin.png" alt="linkedinlogo"></a> <!-- LinkedIn -->
+        </div>
+    </div>
     <script>
         // Sample Mentor Data with Availability Status
         const mentors = [
-            { name: "Alice Johnson", skill: "Machine Learning", industry: "AI", experience: "Senior", rating: "⭐⭐⭐⭐⭐", availability: "Online", image: "https://i.pravatar.cc/100?img=1", calendly: "https://calendly.com/alice-mentor/30min" },
-            { name: "Bob Smith", skill: "Web Development", industry: "Software", experience: "Mid-Level", rating: "⭐⭐⭐⭐", availability: "Busy", image: "https://i.pravatar.cc/100?img=2", calendly: "https://calendly.com/bob-mentor/30min" },
-            { name: "Charlie Brown", skill: "Cybersecurity", industry: "Cybersecurity", experience: "Junior", rating: "⭐⭐⭐", availability: "Offline", image: "https://i.pravatar.cc/100?img=3", calendly: "https://calendly.com/charlie-mentor/30min" }
+            { name: "Johnson", skill: "Machine Learning", industry: "AI", experience: "Senior", rating: "⭐⭐⭐⭐⭐", availability: "Online", image: "https://i.pravatar.cc/100?img=3", calendly: "https://calendly.com/alice-mentor/30min" },
+            { name: "Bob Smith", skill: "Web Development", industry: "Software", experience: "Mid-Level", rating: "⭐⭐⭐⭐", availability: "Busy", image:"https://i.pravatar.cc/100?img=1", calendly: "https://calendly.com/bob-mentor/30min" },
+            { name: "Charlie Brown", skill: "Cybersecurity", industry: "Cybersecurity", experience: "Junior", rating: "⭐⭐⭐", availability: "Offline", image: "https://i.pravatar.cc/100?img=3", calendly: "https://calendly.com/charlie-mentor/30min" },
+            { name: "Diana Green", skill: "Data Science", industry: "AI", experience: "Mid-Level",rating: "⭐⭐⭐", image: "https://i.pravatar.cc/100?img=3", calendly: "https://calendly.com/charlie-mentor/30min"},
+            { name: "Edward King", skill: "Cloud Computing", industry: "Software", experience: "Senior",rating: "⭐⭐⭐⭐", image: "https://i.pravatar.cc/100?img=3", calendly: "https://calendly.com/bob-mentor/30min" },
+            { name: "Fiona Brown", skill: "Artificial Intelligence", industry: "AI", experience: "Junior",rating: "⭐⭐⭐⭐⭐", image: "https://i.pravatar.cc/100?img=1", calendly: "https://calendly.com/alice-mentor/30min" },
+            { name: "George White", skill: "Software Development", industry: "Software", experience: "Mid-Level",rating: "⭐⭐⭐⭐", image:  "https://i.pravatar.cc/100?img=1", calendly: "https://calendly.com/bob-mentor/30min" },
+            { name: "Hannah Green", skill: "Cybersecurity", industry: "Cybersecurity", experience: "Senior",rating: "⭐⭐⭐", image: "https://i.pravatar.cc/100?img=3", calendly: "https://calendly.com/charlie-mentor/30min" },
+            { name: "Ivy Brown", skill: "Data Science", industry: "AI", experience: "Junior",rating: "⭐⭐⭐", image: "https://i.pravatar.cc/100?img=3", calendly: "https://calendly.com/charlie-mentor/30min" },
+            { name: "Jack White", skill: "Cloud Computing", industry: "Software", experience: "Mid-Level",rating: "⭐⭐⭐⭐", image:  "https://i.pravatar.cc/100?img=1", calendly: "https://calendly.com/bob-mentor/30min" },
+            { name: "Katie Green", skill: "Artificial Intelligence", industry: "AI", experience: "Senior",rating: "⭐⭐⭐⭐⭐", image: "https://i.pravatar.cc/100?img=1", calendly: "https://calendly.com/alice-mentor/30min" },
+        
+            
+            
         ];
 
         // Function to Display Mentors
@@ -387,7 +450,6 @@
             const mentorContainer = document.getElementById("mentorContainer");
             mentorContainer.innerHTML = "";
             filteredMentors.forEach(mentor => {
-                const statusClass = mentor.availability.toLowerCase();
                 const card = document.createElement("div");
                 card.classList.add("mentor-card");
                 card.innerHTML = `
@@ -396,7 +458,6 @@
                     <div class="mentor-info">${mentor.skill} - ${mentor.industry}</div>
                     <div class="mentor-info">Experience: ${mentor.experience}</div>
                     <div class="mentor-rating">${mentor.rating}</div>
-                    <div class="availability ${statusClass}">🔵 ${mentor.availability}</div>
                     <button class="schedule-btn" onclick="scheduleSession('${mentor.calendly}')">Schedule Session</button>
                 `;
                 mentorContainer.appendChild(card);
@@ -406,16 +467,29 @@
         function scheduleSession(calendlyUrl) {
             window.open(calendlyUrl, "_blank");
         }
+        function filterMentors() {
+            const searchText = document.getElementById("searchInput").value.toLowerCase();
+            const industry = document.getElementById("industryFilter").value;
+            const experience = document.getElementById("experienceFilter").value;
+
+            const filteredMentors = mentors.filter(mentor => 
+                (mentor.name.toLowerCase().includes(searchText) || mentor.skill.toLowerCase().includes(searchText)) &&
+                (industry === "" || mentor.industry === industry) &&
+                (experience === "" || mentor.experience === experience)
+            );
+
+            displayMentors(filteredMentors);
+        }
 
         function addPost() {
             const postInput = document.getElementById("postInput");
-            if (postInput.value.trim()) {
-                const postDiv = document.createElement("div");
-                postDiv.classList.add("post");
-                postDiv.textContent = postInput.value;
-                document.getElementById("forumPosts").prepend(postDiv);
-                postInput.value = "";
-            }
+            const forumPosts = document.getElementById("forumPosts");
+            if (postInput.value.trim() === "") return;
+            const postDiv = document.createElement("div");
+            postDiv.classList.add("post");
+            postDiv.textContent = postInput.value;
+            forumPosts.prepend(postDiv);
+            postInput.value = "";
         }
 
         displayMentors(mentors);

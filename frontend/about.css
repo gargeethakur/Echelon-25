@@ -20,7 +20,7 @@ body {
         }
 
         .contact-info {
-            text-align: left;
+            text-align: center;
             margin-top: 20px;
             line-height: 1.8;
         }
@@ -49,11 +49,7 @@ body {
           
         }
 
-        .social-icons a {
-            font-size: 30px;
-            color: #FFA500;
-            transition: transform 0.3s ease;
-        }
+        
 
         .social-icons a:hover {
             transform: scale(1.2);

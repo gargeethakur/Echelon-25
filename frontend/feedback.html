@@ -89,6 +89,37 @@
             border-radius: 5px;
             text-align: left;
         }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+
+          
+        }
+
+        .social-icons a {
+            font-size: 30px;
+            color: #FFA500;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+            color: white;
+            width: 10px;
+            height: auto;
+        }
+
+        .social-icons img {
+            width: 40px; /* Adjust size as needed */
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover img {
+            transform: scale(1.2);
+        }
     </style>
 </head>
 <body>
@@ -99,6 +130,9 @@
     <div class="feedback-list" id="feedbackList">
         <h2>User Feedback</h2>
     </div>
+    <a href ="https://www.chatbase.co/chatbot-iframe/p6l8tFTfSUtFHoUSUAHOI">chatbot</a>
+
+
 
     <!-- Feedback Button -->
     <button class="feedback-btn" onclick="toggleFeedbackForm()">💬 Feedback</button>
@@ -108,6 +142,24 @@
         <textarea id="feedbackInput" placeholder="Enter your feedback..."></textarea>
         <button onclick="submitFeedback()">Submit</button>
     </div>
+    <div class="contact-container">
+        <h2>📞 Get in Touch</h2>
+        
+        <div class="contact-info">
+            <p><i>📱</i> Riddhima Ghule - <a href="tel:+91 9967827199">+91 9967827199</a></p>
+            <p><i>📱</i> Gargee Thakur- <a href="tel:+91 85917 71156">+91  85917 71156</a></p>
+            <p><i>📱</i> Arnav Gulve- <a href="tel:+9182912 84003">+91 82912 84003</a></p>
+
+            
+            <p><i>📍</i> NMIMS Navi Mumbai</p>
+            <p><i>✉</i> <a href="mailto:riddhimaghule18@gmail.com">riddhimaghule18@gmail.com</a></p>
+        </div>
+
+        <h2>🌍 Connect With Us</h2>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/heyyyyaditii/"><img src="insta.png" alt="instalogo"></a> <!-- Instagram -->
+            <a href="#" target="_blank"><img src="linkedin.png" alt="linkedinlogo"></a> <!-- LinkedIn -->
+        </div>
 
     <script>
         // Load saved feedback from localStorage
@@ -133,7 +185,8 @@
             let feedbackList = document.getElementById("feedbackList");
             feedbackList.innerHTML = "<h2>User Feedback</h2>";
             feedbacks.forEach(feedback => {
-                feedbackList.innerHTML += <div class="feedback-item">${feedback}</div>;
+                feedbackList.innerHTML += `<div class="feedback-item">${feedback}</div>`;
+
             });
         }
 
